@@ -1,0 +1,15 @@
+/* .react-flow__node {
+    pointer-events: auto !important;
+}
+
+.react-flow__background {
+    z-index: 0;
+    /* Ensure background is below nodes */
+}
+
+.react-flow__node {
+    z-index: 10;
+    /* Ensure nodes are on top of the background */
+}
+
+*/
