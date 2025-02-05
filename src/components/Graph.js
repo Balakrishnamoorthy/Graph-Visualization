@@ -1,26 +1,9 @@
 import React, { useEffect } from 'react';
 import ReactFlow, { useNodesState, useEdgesState, Background, Controls, ReactFlowProvider } from 'reactflow';
 import { useSelector, useDispatch } from "react-redux";
-import { setGraph, undo, redo, initializeGraph, setSelectedNode } from "../graphSlice";
+import { setGraph,  setSelectedNode } from "../graphSlice";
 import "reactflow/dist/style.css";
 
-// const Graph = () => {
-//     const { nodes, edges } = useSelector((state) => state.graph);
-
-
-
-
-//     return (
-//         <div style={{ width: '100vw', height: '80vh' }}>
-//             <ReactFlow nodes={nodes} edges={edges} fitView >
-//                 <Background />
-//                 <Controls />
-//             </ReactFlow>
-//         </div>
-//     );
-// };
-
-// export default Graph;
 
 const Graph = () => {
     const dispatch = useDispatch();
@@ -37,25 +20,56 @@ const Graph = () => {
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
+    
+    // Creating a new array for re-render the graph to make the change in UI and 
+    // add style like bg-color & fontsize
+
+    useEffect(() => {
+        // console.log(graph);
+        
+        setNodes(graph.nodes.map(node => ({
+            ...node,
+            style: {
+                backgroundColor: node.data.color,
+                fontSize: `${node.data.fontSize}px`
+            }
+        })));
+        // console.log(nodes);
+        
+    }, [graph.nodes]);
+    
     // useEffect(() => {
-    //     if (graph && graph.nodes && graph.nodes.length === 0) {
-    //         dispatch(initializeGraph());
-    //     }
-    // }, [dispatch, graph]);
+    //     console.log("Updated Nodes in Graph Component:", nodes);
+    // }, [nodes]);
+    
+    
     const onNodeClick = (event, node) => {
-        dispatch(setSelectedNode(node)); // Dispatch selected node to Redux
+        dispatch(setSelectedNode(node)); 
     };
 
-    const onNodeDragStop = (_, node) => {
-        const updatedNodes = nodes.map((n) => (n.id === node.id ? node : n));
-        dispatch(setGraph({ nodes: updatedNodes, edges }));
+     //Save node position when dragging stops
+     const onNodeDragStop = (event, node) => {
+        // console.log(node.position);
+        
+        const updatedNodes = nodes.map(n =>
+            n.id === node.id ? { ...n, position: node.position } : n
+        );
+        dispatch(setGraph({ nodes: updatedNodes, edges })); // Save new positions
     };
+    //Creating a new node to update the style in it to make change in ui
+
+    // const updatedNodes = nodes.map(node => ({
+    //     ...node, 
+    //     style: { 
+    //         ...node.style, 
+    //         backgroundColor: node.data.color,
+    //         fontSize: node.data.fontSize } 
+    // }));
+    
 
     return (
         <ReactFlowProvider>
             <div style={{ width: "100vw", height: "100vh" }}>
-                <button onClick={() => dispatch(undo())}>Undo</button>
-                <button onClick={() => dispatch(redo())}>Redo</button>
                 <Background />
                 <ReactFlow
                     nodes={nodes}
@@ -64,6 +78,7 @@ const Graph = () => {
                     onEdgesChange={onEdgesChange}
                     onNodeDragStop={onNodeDragStop}
                     onNodeClick={onNodeClick}
+                    // nodeTypes={nodeTypes}
                     fitView
                 />
                 <Controls />

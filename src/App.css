@@ -1,15 +1,24 @@
-/* .react-flow__node {
-    pointer-events: auto !important;
+.nodecontrol {
+    display: flex;
+    flex-direction: column; /* Keeps title on top */
+    gap: 10px; /* Space between elements */
 }
 
-.react-flow__background {
-    z-index: 0;
-    /* Ensure background is below nodes */
+.controls-container {
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+    gap: 10px; /* Space between elements */
 }
 
-.react-flow__node {
-    z-index: 10;
-    /* Ensure nodes are on top of the background */
+.controls-container input {
+    width: 150px; /* Adjust input size */
+    padding: 5px;
 }
 
-*/
+.controls-container select {
+    padding: 5px;
+}
+
+.controls-container .sketch-picker {
+    width: 150px !important; /* Prevents color picker from expanding too much */
+}
