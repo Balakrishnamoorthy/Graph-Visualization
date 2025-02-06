@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateNodeColor, updateFontSize, setSelectedNode ,undo, redo} from '../graphSlice';
+import { updateNodeColor, updateFontSize ,undo, redo} from '../graphSlice';
 import { SketchPicker } from 'react-color';
 import "../App.css";
 

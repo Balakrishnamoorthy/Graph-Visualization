@@ -1,70 +1,119 @@
-# Getting Started with Create React App
+Interactive Graph Visualization
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🚀 Project Overview
+This project is a **React-based interactive graph visualization tool** that allows users to create, modify, and manage nodes and edges dynamically. It includes features like **custom nodes, editable edges, undo/redo functionality, and state persistence with Redux**.
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+📌 Features
+- **Customizable Nodes & Edges**
+- **Drag & Drop Functionality**
+- **Undo / Redo Actions**
+- **Node Selection & Styling**
+- **State Management with Redux**
+- **Live Graph Updates**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+🛠️ Tech Stack
+- **Frontend**: React, React Flow, Redux Toolkit
+- **State Management**: Redux
+- **Styling**: CSS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+⚡ Getting Started
+1️⃣ Clone the Repository
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+gh repo clone Balakrishnamoorthy/Graph-Visualization
+cd project-name
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+2️⃣ Install Dependencies
+npm install 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3️⃣ Run the Development Server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+npm start  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+The application will be available at **http://localhost:3000**.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🔧 Available Scripts
+| Command         | Description |
+|-----------------|-------------|
+| `npm start`     | Start the development server |
+| `npm run build` | Create a production build |
+| `npm test`      | Run tests (if applicable) |
+| `npm run lint`  | Check for errors |
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+📂 Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+project-name/
+│── src/
+│   ├── components/
+│   │   ├── Graph.js
+│   │   ├── NodeControls.js
+|   ├── customize/
+│   │   ├── customeNodes.js
+|   |   ├── customeEdges.js
+│   ├── store.js
+│   ├── graphSlice.js
+│   ├── App.js
+│   ├── index.js
+│── public/
+│── README.md
+│── package.json
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+🔗 Dependencies
+json
+{
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-flow": "^11.8.1",
+    "redux-toolkit": "^1.8.5"
+  }
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+🎨 Usage Guide
+🖱️ Selecting a Node
+Click on a node to select it. The **Node Controls** panel will update with the selected node’s details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🎨 Changing Node Color
+1. Select a node.
+2. Choose a new color from the Node Controls panel.
+3. The color change will reflect immediately.
+
+↩️ Undo / Redo Actions
+- Click **Undo** to revert the last action.
+- Click **Redo** to reapply the last undone action.
+
+
+
+🤝 Contributing
+Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
+
+
+
+🛠️ Future Improvements
+- 🏷️ **Better UI Design**
+- ⚡ **Performance Optimization**
+- 📌 **More Customizable Node Styles**
+
+
+
+📞 Contact
+For any queries, reach out at `balakrishnamoorthy77@gmail.com` or open an issue in the repo.
+
+Happy Coding! 🚀
+
